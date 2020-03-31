@@ -1,0 +1,12 @@
+<img alt="Jeek's logo" class="img-fluid logo-header d-block mt-1" src="/assets/images/logo-jeek.svg">
+{{ if .IsTranslated }}
+<ul class="navbar-nav navbar-expand ml-auto">
+  {{$currentLang := .Site.Language.Lang}}
+  {{ range .AllTranslations }}
+  <li class="nav-item">
+    <a class="p-2 {{ if eq .Lang $currentLang }}active{{end}}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+  </li>
+  {{ end}}
+</ul>
+{{ end }}
+

@@ -1,0 +1,61 @@
+{{- $script := .context.Site.Data.webpack.main -}}
+{{- with $script.js -}}
+<script src="{{ relURL . }}"></script>
+{{ end }}
+<!--
+<script nonce="{{ .nonce }}">
+  if ( 'serviceWorker' in navigator ) {
+    window.addEventListener( 'load', () => {
+      navigator.serviceWorker.register( '/sw.js' ).then( registration => {
+        console.log( 'SW registered' );
+      } ).catch( registrationError => {
+        console.log( 'SW registration failed' );
+      } );
+    } );
+  }
+</script>
+
+<script nonce="{{ .nonce }}" type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "MobileApplication",
+    "applicationCategory": "Multimedia",
+    "about": {
+      "description": "{{ .context.Site.Params.description | safeHTML}}"
+    },
+    "applicationSuite": "{{ .context.Title }}",
+    "availableOnDevice": "iOS, Android",
+    "downloadUrl": "",
+    "featureList": "",
+    "screenshot": "",
+    "video": {
+      "embedUrl": "",
+      "duration": "",
+      "thumbnail": ""
+    },
+    "author": {
+      "address": "",
+      "duns": "",
+      "email": "",
+      "legalName": "",
+      "logo": "",
+      "telephone": "",
+      "vatID": ""
+    },
+    "copyrightHolder": {
+      "address": "",
+      "duns": "",
+      "email": "",
+      "legalName": "",
+      "logo": "",
+      "telephone": "",
+      "vatID": ""
+    },
+    "datePublished": "",
+    "audience": {
+      "audienceType": "All"
+    },
+    "isFamilyFriendly": true
+  }
+</script>
+-->

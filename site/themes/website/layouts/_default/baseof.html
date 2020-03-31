@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{.Language}}">
+    {{- $nonce := sha1 "jeek" -}}
+    {{- $webpack := "" -}}
+    {{- if eq hugo.Environment "development" -}}
+        {{- $webpack = "'unsafe-eval'" -}}
+    {{- end -}}
+
+    {{- partial "head.html" (dict "nonce" $nonce "webpack" $webpack "context" .) -}}
+
+    <body>
+
+        {{- partial "header.html" . -}}
+
+        <div id="content">
+
+        {{- block "main" . }}{{- end }}
+
+        </div>
+
+        {{- partial "footer.html" (dict "nonce" $nonce "context" .) -}}
+
+    </body>
+</html>

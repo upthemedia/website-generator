@@ -1,0 +1,62 @@
+baseurl = "https://www.website.com"
+copyright = "Author..."
+languageCode = "es"
+languageLang = "es"
+title = "Website title"
+theme = "website"
+DefaultContentLanguage = "es"
+defaultContentLanguageInSubdir = "false"
+disableHugoGeneratorInject = "true"
+
+[params]
+  description = "Website Description"
+  image = "https://.../dist/images/share.png"
+  nonce = ""
+#   [site]
+#     childsrc = ["'self'"]
+#     fontsrc = ["'self'", "'https://fonts.googleapis.com'"]
+#     formaction = ["'self'"]
+#     framesrc = ["'self'"]
+#     imgsrc = ["'self'"]
+#     objectsrc = ["'none'"]
+#     stylesrc = ["'self'"]
+#     scriptsrc = ["'self'", "'https://www.google-analytics.com'", "'https://*.google.com", "'https://*.googleapis.com'"]
+
+
+
+# RSS, categories and tags disabled for an easy start
+# See configuration options for more details:
+# https://gohugo.io/getting-started/configuration/#toml-configuration
+disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+[languages]
+  [languages.en]
+	languageName = "English"
+	weight = 1
+	description = "Website Description"
+  [languages.es]
+	languageName = "Español"
+    description = "Descripción de la web"
+    weight = 2
+
+
+
+[[deployment.targets]]
+name = "s3"
+URL = "s3://xxxx?region=eu-west-1&prefix=v3/"
+cloudFrontDistributionID = "E1GUQM2EOR4I84"
+
+[[deployment.matchers]]
+#  Cache static assets for 1 year.
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json)$"
+gzip = true
