@@ -7,6 +7,11 @@ theme = "website"
 DefaultContentLanguage = "es"
 defaultContentLanguageInSubdir = "false"
 disableHugoGeneratorInject = "true"
+archetypeDir = "site/archetypes"
+themesDir = "site/themes"
+contentDir = "site/content"
+staticDir = "site/static"
+dataDir = "site/data"
 
 [params]
   description = "Website Description"
