@@ -1,0 +1,1 @@
+FROM klakegg/hugo:0.81.0
